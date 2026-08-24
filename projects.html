@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Meharban</title>
+    <meta name="description" content="Projects page for a digital marketing fresher portfolio." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="Home page">
+          <span class="brand-mark">M</span>
+          <span>Meharban</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="services.html">Services</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="contact.html" class="btn btn-primary nav-cta">Contact Me</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="container">
+          <div class="section-heading project-header-row">
+            <div>
+              <span class="kicker">Projects</span>
+              <h2>Practical marketing work that demonstrates my learning.</h2>
+            </div>
+            <button id="addProjectBtn" class="btn btn-primary" type="button">+ Add Project</button>
+          </div>
+
+          <div id="projectGrid" class="project-grid" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="projectModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <div class="modal-header">
+          <h3 id="projectModalTitle">Add Project</h3>
+          <button type="button" class="modal-close" data-close="true" aria-label="Close">×</button>
+        </div>
+
+        <form id="projectForm" class="project-form">
+          <input type="hidden" id="projectId" />
+
+          <div class="form-row">
+            <div class="field">
+              <label for="projectTitle">Project title</label>
+              <input id="projectTitle" name="projectTitle" type="text" placeholder="SEO Website Audit" required />
+            </div>
+            <div class="field">
+              <label for="projectCategory">Category</label>
+              <select id="projectCategory" name="projectCategory" required>
+                <option value="SEO">SEO</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Analytics">Analytics</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="projectDescription">Description</label>
+            <textarea id="projectDescription" name="projectDescription" placeholder="Describe the project goal, work, and outcomes..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="projectDate">Date</label>
+              <input id="projectDate" name="projectDate" type="date" />
+            </div>
+            <div class="field">
+              <label for="projectUrl">Project URL</label>
+              <input id="projectUrl" name="projectUrl" type="url" placeholder="https://example.com" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="projectTools">Tools used</label>
+            <input id="projectTools" name="projectTools" type="text" placeholder="Google Search Console, Excel, Canva" />
+          </div>
+
+          <div class="field">
+            <label for="projectSkills">Skills</label>
+            <input id="projectSkills" name="projectSkills" type="text" placeholder="SEO, Keyword Research, Analytics" />
+          </div>
+
+          <div class="field">
+            <label for="projectResults">Results / metrics</label>
+            <textarea id="projectResults" name="projectResults" placeholder="Example: CTR improved from 2.8% to 4.6%, 120 leads generated, 35% engagement boost."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Project image(s)</label>
+            <input id="projectImages" type="file" accept="image/*" multiple />
+            <div id="imagePreview" class="image-preview" aria-live="polite"></div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" data-close="true">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <p>© <span id="year"></span> Meharban. All rights reserved.</p>
+        <p class="muted">Digital Marketing Portfolio</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

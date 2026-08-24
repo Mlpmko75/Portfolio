@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Meharban</title>
+    <meta name="description" content="Contact page for a digital marketing fresher portfolio." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="Home page">
+          <span class="brand-mark">M</span>
+          <span>Meharban</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="services.html">Services</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+
+        <a href="contact.html" class="btn btn-primary nav-cta">Contact Me</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="container contact-grid">
+          <div class="contact-card">
+            <span class="kicker">Let's Connect</span>
+            <h3>I am currently looking for a Digital Marketing Executive / Intern opportunity.</h3>
+            <p class="muted">I am open to learning new strategies, contributing to marketing campaigns, and growing with a dynamic team.</p>
+
+            <ul class="contact-list">
+              <li><strong>Email:</strong> meharban@gmail.com</li>
+              <li><strong>Phone:</strong> +91 98765 43210</li>
+              <li><strong>Location:</strong> Dehradun, India</li>
+              <li><strong>LinkedIn:</strong> linkedin.com/in/meharban</li>
+              <li><strong>GitHub:</strong> github.com/meharban</li>
+            </ul>
+          </div>
+
+          <div class="contact-card">
+            <h3>Send a Message</h3>
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="Your email" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="Your phone number" />
+                </div>
+                <div class="field">
+                  <label for="location">Location</label>
+                  <input id="location" name="location" type="text" placeholder="Your city" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <p id="formStatus" class="muted" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <p>© <span id="year"></span> Meharban. All rights reserved.</p>
+        <p class="muted">Digital Marketing Portfolio</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
