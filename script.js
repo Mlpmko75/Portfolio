@@ -351,21 +351,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const submitButton = form.querySelector('button[type="submit"]');
       const status = document.getElementById('formStatus');
+      const accessKey = form.querySelector('[name="access_key"]')?.value;
+
+      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        if (status) {
+          status.textContent = 'Please add your Web3Forms access key before sending messages.';
+        }
+        return;
+      }
 
       if (submitButton) {
-        submitButton.textContent = 'Message Sent';
+        submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
       }
 
-      if (status) {
-        status.textContent = 'Thanks for reaching out. I will get back to you soon.';
-      }
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+        const result = await response.json();
 
-      form.reset();
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'Unable to send the message.');
+        }
+
+        if (status) {
+          status.textContent = 'Thanks for reaching out. I will get back to you soon.';
+        }
+        form.reset();
+      } catch (error) {
+        if (status) {
+          status.textContent = 'Message could not be sent. Please try again or email me directly.';
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.textContent = 'Send Message';
+          submitButton.disabled = false;
+        }
+      }
     });
   }
 
